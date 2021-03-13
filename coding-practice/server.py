@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, request
+from flask import Flask, render_template, session, request, redirect, flash
 import jinja2
 
 MESSAGES = {
@@ -17,12 +17,20 @@ def show_homepage():
     return render_template('homepage.html')
 
 
+@app.route('/save-name')
+def save_name():
+    """ Get user's name and save to session. Return to homepage. """
+
+    # GET request for name attribute; store in session:
+    session["name"] = request.args.get("name") # overwrites former name, if any
+
+    return redirect('/')
+
+
 @app.route('/form')
 def show_form():
     """ Show form to user; send to next template to render. """
 
-    # GET request for name attribute; store in session:
-    session["name"] = request.args.get("name") # overwrites former name, if any
 
     return render_template('form.html', session=session)
 

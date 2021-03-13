@@ -2,9 +2,14 @@
 
 {% block content %}
 
-<form method="GET" action="/form">
+<form method="GET" action="/save-name">
     Enter your name: <input type="text" name="name">
     <input type="submit"><!-- TODO: necessary for name to come through?! -->
+</form>
+
+<form method="GET" action="/form">
+    Would you like to get a message?
+    <input type="submit" value="Yes, please!">
 </form>
 
 {% endblock %}
