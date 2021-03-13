@@ -2,8 +2,9 @@
 
 {% block content %}
 
-Welcome to the Site
-
-<p>#2) Create a form on this page that asks for the user's name.</p>
+<form method="GET" action="/form">
+    Enter your name: <input type="text" name="name">
+    <input type="submit"><!-- TODO: necessary for name to come through?! -->
+</form>
 
 {% endblock %}
